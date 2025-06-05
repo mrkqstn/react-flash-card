@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const { VITE_TARGET } = import.meta.env
+
 export default class UserApi {
   static async getAllGames() {
     const { data } = await axios.get(`${VITE_TARGET}/games/`);
