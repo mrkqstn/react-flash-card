@@ -1,12 +1,13 @@
 const router = require('express').Router(); //* получаем экземпляр роутинга из библиотеки
 const formatResponse = require('../utils/formatResponse'); //* подтягиваем утилиту для унификации ответа по 404
+const answer = require("./answerRouter")
+// router.use('/posts', postRouter); //* по пути на posts отрабатывает набор из postRouter
+router.use('/answers',answer)
+//! Обработка всех запросов на несуществующие маршруты (меняем стандартный ответ от express)
 const themeRouter = require('../routes/theme.router')
 const QuestionController = require('../routes/questionRouter')
 // router.use('/posts', postRouter); //* по пути на posts отрабатывает набор из postRouter
-
-
 router.use('/themes', themeRouter);
-
 
 //! Обработка всех запросов на несуществующие маршруты (меняем стандартный ответ от express)
 router.use('/questions', QuestionController)
