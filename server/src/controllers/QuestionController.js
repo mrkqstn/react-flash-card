@@ -19,7 +19,7 @@ class QuestionController {
       }))
     }
   }
-
+// * второй метод
   static async getAllQuestionsByThemeAndId (req, res) {
     try {
       const { themeId } = req.params 
