@@ -4,6 +4,7 @@ const answer = require("./answerRouter")
 // router.use('/posts', postRouter); //* по пути на posts отрабатывает набор из postRouter
 router.use('/answers',answer)
 //! Обработка всех запросов на несуществующие маршруты (меняем стандартный ответ от express)
+
 router.use((req, res) => {
   res.status(404).json(formatResponse(404, 'Not found'));
 });
