@@ -1,9 +1,11 @@
 const router = require('express').Router(); //* получаем экземпляр роутинга из библиотеки
 const formatResponse = require('../utils/formatResponse'); //* подтягиваем утилиту для унификации ответа по 404
-
+const QuestionController = require('../routes/questionRouter')
 // router.use('/posts', postRouter); //* по пути на posts отрабатывает набор из postRouter
 
 //! Обработка всех запросов на несуществующие маршруты (меняем стандартный ответ от express)
+router.use('/questions', QuestionController)
+
 router.use((req, res) => {
   res.status(404).json(formatResponse(404, 'Not found'));
 });
