@@ -20,7 +20,6 @@ class PostController {
 
   static async getGamesByTheme(req, res) {
     try {
-      console.log('--------------------')
         const { id } = req.params
       const posts = await GameService.getAllGameByTheme(id);
       if (posts.length === 0) {
