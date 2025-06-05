@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const QuestionController = require('../controllers/QuestionController')
-
+// роуты
 
 router
   .get('/:theme_id/:id',  QuestionController.getAllQuestionsByTheme)
