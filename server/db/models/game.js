@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Game.init(
     {
-      user_name: DataTypes.BIGINT,
+      user_name: DataTypes.STRING,
       theme_id: DataTypes.BIGINT,
       score: DataTypes.BIGINT,
     },

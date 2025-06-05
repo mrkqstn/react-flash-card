@@ -5,6 +5,8 @@ class PostController {
 
     static async getGames(req, res) {
     try {
+
+      
       const posts = await GameService.getAllGame();
       if (posts.length === 0) {
         return res.status(200).json(formatResponse(200, 'Not posts found', []));
@@ -18,8 +20,9 @@ class PostController {
 
   static async getGamesByTheme(req, res) {
     try {
+      console.log('--------------------')
         const { id } = req.params
-      const posts = await GameService.getAllGame(id);
+      const posts = await GameService.getAllGameByTheme(id);
       if (posts.length === 0) {
         return res.status(200).json(formatResponse(200, 'Not posts found', []));
       }

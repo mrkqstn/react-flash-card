@@ -10,6 +10,7 @@ class GameService {
       where: { theme_id: themeId },
       include: {
         model: Theme,
+        as: 'theme',
         attributes: ['theme_name'],
       },
     });
