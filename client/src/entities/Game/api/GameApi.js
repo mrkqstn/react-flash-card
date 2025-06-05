@@ -12,4 +12,6 @@ export default class UserApi {
     if (!data.data) throw new Error('Данные отсутствуют');
     return data;
   }
+
+  //333
 }
