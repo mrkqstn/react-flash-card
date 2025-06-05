@@ -1,10 +1,10 @@
 const router = require('express').Router()
 
 const QuestionController = require('../controllers/QuestionController')
-
+// роуты
 
 router
-  .get('/questions/:theme_id',  QuestionController.getAllQuestionsByTheme)
-  .get('/questions/:id',  QuestionController.getAllQuestionsByThemeAndId)
+  .get('/:theme_id/:id',  QuestionController.getAllQuestionsByTheme)
+  .get('/:id',  QuestionController.getAllQuestionsByThemeAndId)
 
 module.exports = router
