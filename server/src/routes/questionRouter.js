@@ -4,7 +4,7 @@ const QuestionController = require('../controllers/QuestionController')
 // роуты
 
 router
-  .get('/:theme_id/:id',  QuestionController.getAllQuestionsByTheme)
-  .get('/:id',  QuestionController.getAllQuestionsByThemeAndId)
+  .get('/:themeId',  QuestionController.getAllQuestionsByTheme)
+  .get('/:themeId/:id',  QuestionController.getAllQuestionsByThemeAndId)
 
 module.exports = router

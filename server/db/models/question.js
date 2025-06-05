@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
       // Один вопрос может иметь много ответов
       Question.hasMany(models.Answer, {
-        foreignKey: 'qwestion_id',
+        foreignKey: 'question_id',
         as: 'answers',
       });
     }

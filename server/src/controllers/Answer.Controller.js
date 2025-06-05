@@ -1,5 +1,5 @@
 const AnswerService = require("../services/Answer.Service");
-const { formatResponse } = require('../utils/formatResponse')
+const formatResponse = require('../utils/formatResponse')
 
 
 class AnswerController {
