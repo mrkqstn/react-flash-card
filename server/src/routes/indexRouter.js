@@ -4,7 +4,9 @@ const themeRouter = require('../routes/theme.router')
 
 // router.use('/posts', postRouter); //* по пути на posts отрабатывает набор из postRouter
 
+
 router.use('/themes', themeRouter);
+
 
 //! Обработка всех запросов на несуществующие маршруты (меняем стандартный ответ от express)
 
