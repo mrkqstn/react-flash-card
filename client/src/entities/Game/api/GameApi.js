@@ -1,6 +1,8 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export default class UserApi {
+const { VITE_TARGET } = import.meta.env;
+
+export default class GameApi {
   static async getAllGames() {
     const { data } = await axios.get(`${VITE_TARGET}/games/`);
     if (!data.data) throw new Error('Данные отсутствуют');
@@ -13,5 +15,5 @@ export default class UserApi {
     return data;
   }
 
-  //333
+
 }
