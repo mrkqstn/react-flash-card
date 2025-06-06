@@ -55,43 +55,112 @@ export default function QuestionCard({
     }
   };
 
-  return (
-    <Card style={{ width: '18rem', margin: '0 auto' }}>
-      <Card.Body>
-        <Card.Title>
-          Вопрос {currentQuestion} из {totalQuestions}
-        </Card.Title>
-        <Card.Text>{question.question}</Card.Text>
+return (
+  <Card style={{ 
+    width: '18rem', 
+    margin: '0 auto',
+    border: 'none',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    borderRadius: '10px',
+    marginTop: '80px'
+  }}>
+    <Card.Body style={{ padding: '20px' }}>
+      <Card.Title style={{ 
+        fontSize: '1.2rem',
+        fontWeight: '600',
+        marginBottom: '15px',
+        color: '#4e73df'
+      }}>
+        Вопрос {currentQuestion} из {totalQuestions}
+      </Card.Title>
+      <Card.Text style={{ 
+        fontSize: '1.1rem',
+        marginBottom: '20px',
+        color: '#4e73df',
+        fontWeight: 'bold'
+      }}>
+        {question.question}
+      </Card.Text>
 
-        <div className='answers'>
-          {answers.map((answer) => (
-            <Button
-              key={answer.id}
-              variant={
-                selectedAnswerId === null
-                  ? 'outline-primary'
-                  : answer.id === selectedAnswerId
-                  ? isCorrectAnswer
-                    ? 'success'
-                    : 'danger'
-                  : 'outline-secondary'
+      <div style={{ marginBottom: '15px' }}>
+        {answers.map((answer) => (
+          <Button
+            key={answer.id}
+            style={{ 
+              width: '100%',
+              padding: '12px 24px',
+              margin: '8px 0',
+              backgroundColor: selectedAnswerId === null 
+                ? 'transparent' 
+                : answer.id === selectedAnswerId
+                  ? isCorrectAnswer 
+                    ? '#28a745' 
+                    : '#dc3545'
+                  : 'transparent',
+              color: selectedAnswerId === null 
+                ? '#4e73df' 
+                : answer.id === selectedAnswerId
+                  ? '#fff'
+                  : '#6c757d',
+              border: selectedAnswerId === null 
+                ? '1px solid #4e73df' 
+                : answer.id === selectedAnswerId
+                  ? 'none'
+                  : '1px solid #dee2e6',
+              borderRadius: '8px',
+              fontSize: '1rem',
+              fontWeight: '500',
+              textTransform: 'none',
+              letterSpacing: '0.3px',
+              boxShadow: selectedAnswerId === answer.id 
+                ? '0 4px 6px rgba(0,0,0,0.1)' 
+                : 'none',
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              ':hover': {
+                transform: selectedAnswerId === null ? 'translateY(-2px)' : 'none',
+                boxShadow: selectedAnswerId === null 
+                  ? '0 4px 8px rgba(0,0,0,0.1)' 
+                  : 'none'
               }
-              style={{ display: 'block', margin: '5px 0', width: '100%' }}
-              onClick={() => handleAnswerSelect(answer.id)}
-            >
-              {answer.var_on_answer}
-            </Button>
-          ))}
-        </div>
+            }}
+            onClick={() => handleAnswerSelect(answer.id)}
+          >
+            {answer.var_on_answer}
+          </Button>
+        ))}
+      </div>
 
-        <Button
-          variant='primary'
-          style={{ marginTop: '10px' }}
-          onClick={() => onAnswerHandler()} // Пропускаем вопрос без ответа
-        >
-          Следующий вопрос
-        </Button>
-      </Card.Body>
-    </Card>
-  );
+      <Button
+        style={{ 
+          width: '100%',
+          padding: '12px 24px',
+          marginTop: '10px',
+          backgroundColor: '#4e73df',
+          border: 'none',
+          borderRadius: '8px',
+          fontSize: '1rem',
+          fontWeight: '600',
+          textTransform: 'none',
+          letterSpacing: '0.5px',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          transition: 'all 0.3s ease',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          ':hover': {
+            backgroundColor: '#2e59d9',
+            transform: 'translateY(-2px)',
+            boxShadow: '0 6px 12px rgba(0,0,0,0.15)'
+          }
+        }}
+        onClick={() => onAnswerHandler()}
+      >
+        Следующий вопрос
+      </Button>
+    </Card.Body>
+  </Card>
+);
 }
