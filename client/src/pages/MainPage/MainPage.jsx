@@ -19,7 +19,9 @@ export default function MAinPage() {
   }
   console.log(gameData)
 
-  return (
+
+return (
+
   <div style={{
     maxWidth: '400px',
     margin: '0 auto',
@@ -53,6 +55,7 @@ export default function MAinPage() {
         />
       </Form.Group>
 
+
       <Button 
         type='submit' 
         style={{ 
@@ -81,4 +84,8 @@ export default function MAinPage() {
     </form>
   </div>
 );
+
 }
+
+}
+
