@@ -1,0 +1,14 @@
+import axios from 'axios'
+
+const { VITE_TARGET } = import.meta.env
+
+export class AnswersApi {
+
+  static async getAllAnswers() {
+    const { data } = await axios.get(`${VITE_TARGET}/:id/unright`)
+    return data
+  };
+ static async fullAnswers() {
+    const { data } = await axios.get(`${VITE_TARGET}/id/right`)
+    return data
+  }}
