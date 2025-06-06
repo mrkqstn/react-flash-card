@@ -14,6 +14,4 @@ export default class GameApi {
     if (!data.data) throw new Error('Данные отсутствуют');
     return data;
   }
-
-
 }
