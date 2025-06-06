@@ -13,7 +13,8 @@ export default function QuestionCard({
 }) {
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
-  const [right, setRight] = useState(null);
+  const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -31,6 +32,9 @@ export default function QuestionCard({
   const handleAnswerSelect = async (id) => {
     try {
       const { data } = await AnswersApi.fullAnswers(id);
+      setSelectedAnswerId(id);
+      setIsCorrectAnswer(data[0].right);
+
       if (data[0].right) {
         const newScore = score + 1;
         setScore(newScore);
@@ -44,7 +48,6 @@ export default function QuestionCard({
       console.log(error);
     }
   };
-  console.log(score);
 
   const onAnswerHandler = () => {
     if (currentQuestionIndex < questions.length - 1) {
@@ -64,7 +67,15 @@ export default function QuestionCard({
           {answers.map((answer) => (
             <Button
               key={answer.id}
-              variant={right === 'true' ? 'success' : 'danger'}
+              variant={
+                selectedAnswerId === null
+                  ? 'outline-primary'
+                  : answer.id === selectedAnswerId
+                  ? isCorrectAnswer
+                    ? 'success'
+                    : 'danger'
+                  : 'outline-secondary'
+              }
               style={{ display: 'block', margin: '5px 0', width: '100%' }}
               onClick={() => handleAnswerSelect(answer.id)}
             >

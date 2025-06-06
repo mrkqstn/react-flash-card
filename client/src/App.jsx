@@ -13,10 +13,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout />} />
+        <Route path='/' element={<Layout />}>
         <Route path='/stats' element={<GameStatisticPage />} />
         <Route path='/questions/:id' element={<QuestionPage />} />
-        <Route path ='/themes' element={<ThemePage />}/> 
+        <Route path ='/themes' element={<ThemePage />}/>      
+        </Route>
       </Routes>
     </>
   );
