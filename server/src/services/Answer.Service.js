@@ -2,7 +2,7 @@ const { Answer } = require('../../db/models');
 class AnswerService {
   static async getAllAnswersWithoutTrue(question) {
     const answer = await Answer.findAll({where: {question_id: question}});
-    const result = answer.map((id,var_on_answer,question_id) => ({id,var_on_answer,question_id}))
+    const result = answer.map((el) => (!el.right))
     return result
   };
   static async getAllAnswers(question) {
