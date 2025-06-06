@@ -553,33 +553,33 @@ module.exports = {
       right: false,
       createdAt: now,
       updatedAt: now
-    }
+    },
 
 // 'Основной язык разметки для веб-страниц?', 
       { 
         var_on_answer: 'HTML', 
-        question_id: 8, 
+        question_id: 15, 
         right: true,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'С++', 
-        question_id: 8, 
+        question_id: 15, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'PHP', 
-        question_id: 8, 
+        question_id: 15, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'Python', 
-        question_id: 8, 
+        question_id: 15, 
         right: false,
         createdAt: now,
         updatedAt: now
@@ -588,28 +588,28 @@ module.exports = {
 
       { 
         var_on_answer: 'Владимир Путин', 
-        question_id: 9, 
+        question_id: 16, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'Илон Маск', 
-        question_id: 9, 
+        question_id: 16, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'Дональд Трамп', 
-        question_id: 9, 
+        question_id: 16, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'Билл Гейтс', 
-        question_id: 9, 
+        question_id: 16, 
         right: true,
         createdAt: now,
         updatedAt: now
@@ -619,28 +619,28 @@ module.exports = {
 
        { 
         var_on_answer: 'Back-end платформа', 
-        question_id: 10, 
+        question_id: 17, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'MVC-фреймворк', 
-        question_id: 10, 
+        question_id: 17, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'фреймворк', 
-        question_id: 10, 
+        question_id: 17, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'JavaScript библиотека', 
-        question_id: 10, 
+        question_id: 17, 
         right: true,
         createdAt: now,
         updatedAt: now
@@ -650,28 +650,28 @@ module.exports = {
 
       { 
         var_on_answer: 'ComponentReact', 
-        question_id: 11, 
+        question_id: 18, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'ReactComponent', 
-        question_id: 11, 
+        question_id: 18, 
         right: false,
         createdAt: now, 
         updatedAt: now
       },
       { 
         var_on_answer: 'ReactJS.Component', 
-        question_id: 11, 
+        question_id: 18, 
         right: false,
         createdAt: now,
         updatedAt: now
       },
       { 
         var_on_answer: 'React.Component', 
-        question_id: 11, 
+        question_id: 18, 
         right: true,
         createdAt: now,
         updatedAt: now
