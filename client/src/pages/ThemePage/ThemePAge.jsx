@@ -25,10 +25,30 @@ console.log('ThemePage', gameData)
 
   return (
     <>
+
       <h1>Выберете тему</h1>
       {themes.map((theme) => (
         <CardTheme key={theme.id} theme={theme} gameData={gameData}/>
       ))}
+
+    <h1 style={{
+      color: '#4e73df', 
+      justifyContent: "center", 
+      paddingLeft: '820px',
+      paddingTop: '80px',
+      paddingBottom: '30px',
+      }}>Выберете тему</h1>
+    {themes.map((theme) => (
+    <CardTheme key={theme.id} theme={theme} style={{ 
+      border: 'none',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      transition: 'transform 0.3s ease',
+      ':hover': {
+        transform: 'translateY(-5px)'
+      }
+    }}/>    
+    ))}
+
     </>
   );
 }
