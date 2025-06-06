@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const { VITE_TARGET } = import.meta.env
 
-export default class UserApi {
+export default class QuestionApi {
   static async getAllGamesByTheme(themeId) {
     const { data } = await axios.get(`${VITE_TARGET}/questions/${themeId}`);
     if (!data.data) throw new Error('Вопросы отсутствуют');

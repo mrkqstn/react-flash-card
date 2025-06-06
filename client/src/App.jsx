@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { Route, Routes } from 'react-router';
 import Layout from './app/layout/Layout';
 import GameStatisticPage from './pages/GameStaticticPage/GameStatisticPage';
+import QuestionPage from './pages/QuestionPage/QuestionPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />} />
         <Route path='/stats' element={<GameStatisticPage />} />
+        <Route path='/questions' element={<QuestionPage />} />
       </Routes>
     </>
   );
