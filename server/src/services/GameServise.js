@@ -22,8 +22,8 @@ class GameService {
     });
   }
 
-  static async getAllGameByUserName(userName) {
-    return await Game.findAll({ where: { user_name: userName } });
+  static async createNewGame(data) {
+    return await Game.create(data);
   }
 }
 

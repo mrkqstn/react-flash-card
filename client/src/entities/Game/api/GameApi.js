@@ -14,4 +14,10 @@ export default class GameApi {
     if (!data.data) throw new Error('Данные отсутствуют');
     return data;
   }
+
+  static async createGame(newGame) {
+    const { data } = await axios.get(`${VITE_TARGET}/games/`, newGame);
+    if (!data.data) throw new Error('Данные отсутствуют');
+    return data;
+  }
 }

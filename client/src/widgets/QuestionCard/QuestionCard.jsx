@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { AnswersApi } from '../../entities/answers/api/answerApi';
+import { useNavigate, useParams } from 'react-router';
+import GameApi from '../../entities/Game/api/GameApi';
 
 export default function QuestionCard({
   question,
@@ -10,17 +12,20 @@ export default function QuestionCard({
   currentQuestionIndex,
   setCurrentQuestionIndex,
   questions,
+  gameData,
 }) {
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(null);
+  const [checkCountQuestion, setCheckCountQuestion] = useState(0);
 
+  const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
       try {
         const { data } = await AnswersApi.getAllAnswers(question.id);
-        console.log(data);
         setAnswers(data);
       } catch (error) {
         console.log(error);
@@ -42,6 +47,14 @@ export default function QuestionCard({
           alert(
             `Викторина завершена! Ваш счет: ${newScore}/${questions.length}`
           );
+          const fullGataGame = { ...gameData, theme_id: id, score: newScore }
+          const { data: newGame } = await GameApi.createGame(fullGataGame);
+          if( !newGame ) {
+            alert(
+            `произошла ошибка при записи результатов игры`
+          );
+          }
+          navigate(`/stats`, { state: fullGataGame })
         }
       }
     } catch (error) {
@@ -52,9 +65,21 @@ export default function QuestionCard({
   const onAnswerHandler = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setCheckCountQuestion((prev) => prev + 1);
     }
   };
 
+
+  console.log({ ...gameData, theme_id: id });
+
+  return (
+    <Card style={{ width: '18rem', margin: '0 auto' }}>
+      <Card.Body>
+        <Card.Title>
+          Вопрос {currentQuestion} из {totalQuestions}
+        </Card.Title>
+        <Card.Text>{question.question}</Card.Text>
+=======
 return (
   <Card style={{ 
     width: '18rem', 
@@ -81,6 +106,7 @@ return (
       }}>
         {question.question}
       </Card.Text>
+
 
       <div style={{ marginBottom: '15px' }}>
         {answers.map((answer) => (

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
 import GameeApi from '../../entities/Game/api/GameApi';
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import GameStatsCard from '../../widgets/GameStatsCard/GameStatsCard';
 
 export default function GameStatisticPage() {
-
   const [gameStat, setGameWithThemeStat] = useState([]);
+  const location = useLocation();
+  const gameData = location.state;
 
-
+  console.log('------------------END', gameData)
 
   useEffect(() => {
     const getTodos = async () => {
       try {
-
         const { data: allGamesWithTeme } = await GameeApi.getAllGames();
 
         setGameWithThemeStat(allGamesWithTeme);
@@ -57,6 +57,9 @@ return (
       padding: '15px'
     }}>
       {gameStat.map((game) => (
+
+        <GameStatsCard key={game.id} game={game} />
+
         <div 
           key={game.id}
           style={{
@@ -69,6 +72,7 @@ return (
         >
           <GameStatsCard game={game} />
         </div>
+
       ))}
     </div>
   </div>
