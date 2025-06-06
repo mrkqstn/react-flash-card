@@ -289,7 +289,7 @@ module.exports = {
     { 
       var_on_answer: 'фаза 1', 
       question_id: 6, 
-      right: true,
+      right: false,
       createdAt: now,
       updatedAt: now
     },
@@ -308,9 +308,9 @@ module.exports = {
       updatedAt: now
     },
     { 
-      var_on_answer: 'о каком повторе идет речь? Он - гений!', 
+      var_on_answer: 'О каком повторе идет речь? Он - гений!', 
       question_id: 6, 
-      right: false,
+      right: true,
       createdAt: now,
       updatedAt: now
     },
