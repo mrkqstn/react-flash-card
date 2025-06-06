@@ -4,52 +4,10 @@ import QuestionApi from '../../entities/Question/Api/QuestionApi';
 import { useParams } from 'react-router';
 import { AnswersApi } from '../../entities/answers/api/answerApi';
 
-// const mokquestion = [
-//   {
-//     question: 'Столица Австралии?',
-//     theme_id: 1,
-//   },
-//   {
-//     question: 'Самая длинная река в мире?',
-//     theme_id: 1,
-//   },
-//   {
-//     question: 'На каком материке находится Египет?',
-//     theme_id: 1,
-//   },
-//   {
-//     question: 'Какая страна имеет наибольшее население?',
-//     theme_id: 1,
-//   },
-// ];
-
-// const mokanswers = [
-//   {
-//     var_on_answer: 'Сидней',
-//     question_id: 1,
-//     right: false,
-//   },
-//   {
-//     var_on_answer: 'Канберра',
-//     question_id: 1,
-//     right: true,
-//   },
-//   {
-//     var_on_answer: 'Мельбурн',
-//     question_id: 1,
-//     right: false,
-//   },
-//   {
-//     var_on_answer: 'Брисбен',
-//     question_id: 1,
-//     right: false,
-//   },
-// ];
-export default function QuestionList() {
+export default function QuestionList({ gameData }) {
   const [questions, setQuestions] = useState([]);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
 
   const { id } = useParams();
 
@@ -65,21 +23,6 @@ export default function QuestionList() {
     getQuestions();
   }, []);
 
-  // const handleAnswerSelect = async (id) => {
-  //   try {
-  //     const { data } = await AnswersApi.fullAnswers(id);
-  //     console.log(data)
-  //     if (data.right) {
-  //       setScore(score + 1);
-  //     }
-  //   } catch (error) {}
-
-  //   if (currentQuestionIndex < questions.length - 1) {
-  //     setCurrentQuestionIndex(currentQuestionIndex + 1);
-  //   } else {
-  //     alert(`Викторина завершена! Ваш счет: ${score}/${questions.length}`);
-  //   }
-  // };
 
   return (
     <>
@@ -91,6 +34,7 @@ export default function QuestionList() {
           currentQuestionIndex={currentQuestionIndex}
           setCurrentQuestionIndex={setCurrentQuestionIndex}
           questions={questions}
+          gameData={gameData}
         />
       ) : (
         <h1>Загрузка вопросов...</h1>
