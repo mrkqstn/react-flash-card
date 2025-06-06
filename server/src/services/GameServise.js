@@ -2,7 +2,13 @@ const { Game, Theme } = require('../../db/models');
 
 class GameService {
   static async getAllGame() {
-    return await Game.findAll();
+    return await Game.findAll({
+      include: {
+        model: Theme,
+        as: 'theme',
+        attributes: ['theme_name'],
+      },
+    });
   }
 
   static async getAllGameByTheme(themeId) {
