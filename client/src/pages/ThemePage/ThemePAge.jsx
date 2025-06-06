@@ -25,12 +25,6 @@ console.log('ThemePage', gameData)
 
   return (
     <>
-
-      <h1>Выберете тему</h1>
-      {themes.map((theme) => (
-        <CardTheme key={theme.id} theme={theme} gameData={gameData}/>
-      ))}
-
     <h1 style={{
       color: '#4e73df', 
       justifyContent: "center", 
@@ -48,7 +42,6 @@ console.log('ThemePage', gameData)
       }
     }}/>    
     ))}
-
     </>
-  );
+  )
 }

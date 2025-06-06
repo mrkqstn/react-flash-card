@@ -21,22 +21,6 @@ export default function CardTheme({ theme, gameData }) {
   //   </Card>
   // );
   return (
-
-    <Card style={{ width: '18rem', margin: '0 auto' }}>
-      <Card.Body>
-        <Button
-          variant='primary'
-          style={{ marginTop: '10px' }}
-          onClick={() =>
-            navigate(`/questions/${theme.id}`, { state: gameData })
-          }
-        >
-          {theme.theme_name}
-        </Button>
-      </Card.Body>
-    </Card>
-  );
-
   <Card style={{ 
     width: '18rem', 
     margin: '0 auto',
@@ -75,5 +59,4 @@ export default function CardTheme({ theme, gameData }) {
     </Card.Body>
   </Card>
 );
-
 }
