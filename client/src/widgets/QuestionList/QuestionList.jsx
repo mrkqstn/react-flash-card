@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import QuestionCard from '../QuestionCard/QuestionCard';
 import QuestionApi from '../../entities/Question/Api/QuestionApi';
 import { useParams } from 'react-router';
+import { AnswersApi } from '../../entities/answers/api/answerApi';
 
 // const mokquestion = [
 //   {
@@ -22,33 +23,33 @@ import { useParams } from 'react-router';
 //   },
 // ];
 
-const mokanswers = [
-  {
-    var_on_answer: 'Сидней',
-    question_id: 1,
-    right: false,
-  },
-  {
-    var_on_answer: 'Канберра',
-    question_id: 1,
-    right: true,
-  },
-  {
-    var_on_answer: 'Мельбурн',
-    question_id: 1,
-    right: false,
-  },
-  {
-    var_on_answer: 'Брисбен',
-    question_id: 1,
-    right: false,
-  },
-];
+// const mokanswers = [
+//   {
+//     var_on_answer: 'Сидней',
+//     question_id: 1,
+//     right: false,
+//   },
+//   {
+//     var_on_answer: 'Канберра',
+//     question_id: 1,
+//     right: true,
+//   },
+//   {
+//     var_on_answer: 'Мельбурн',
+//     question_id: 1,
+//     right: false,
+//   },
+//   {
+//     var_on_answer: 'Брисбен',
+//     question_id: 1,
+//     right: false,
+//   },
+// ];
 export default function QuestionList() {
   const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState(mokanswers);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
+
 
   const { id } = useParams();
 
@@ -64,27 +65,32 @@ export default function QuestionList() {
     getQuestions();
   }, []);
 
-  const handleAnswerSelect = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
+  // const handleAnswerSelect = async (id) => {
+  //   try {
+  //     const { data } = await AnswersApi.fullAnswers(id);
+  //     console.log(data)
+  //     if (data.right) {
+  //       setScore(score + 1);
+  //     }
+  //   } catch (error) {}
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      alert(`Викторина завершена! Ваш счет: ${score}/${questions.length}`);
-    }
-  };
+  //   if (currentQuestionIndex < questions.length - 1) {
+  //     setCurrentQuestionIndex(currentQuestionIndex + 1);
+  //   } else {
+  //     alert(`Викторина завершена! Ваш счет: ${score}/${questions.length}`);
+  //   }
+  // };
 
   return (
     <>
       {questions.length ? (
         <QuestionCard
           question={questions[currentQuestionIndex]}
-          answers={answers}
-          onAnswerSelect={handleAnswerSelect}
           currentQuestion={currentQuestionIndex + 1}
           totalQuestions={questions.length}
+          currentQuestionIndex={currentQuestionIndex}
+          setCurrentQuestionIndex={setCurrentQuestionIndex}
+          questions={questions}
         />
       ) : (
         <h1>Загрузка вопросов...</h1>
