@@ -21,6 +21,7 @@ export default function QuestionCard({
   const [checkCountQuestion, setCheckCountQuestion] = useState(0);
 
   const { id } = useParams();
+  const idTheme = id
   const navigate = useNavigate();
   useEffect(() => {
     const getData = async () => {
@@ -44,10 +45,11 @@ export default function QuestionCard({
         const newScore = score + 1;
         setScore(newScore);
         if (currentQuestionIndex === questions.length - 1) {
+
           alert(
             `Викторина завершена! Ваш счет: ${newScore}/${questions.length}`
           );
-          const fullGataGame = { ...gameData, theme_id: id, score: newScore };
+          const fullGataGame = { ...gameData, theme_id: idTheme, score: newScore };
           const { data: newGame } = await GameApi.createGame(fullGataGame);
           if (!newGame) {
             alert(`произошла ошибка при записи результатов игры`);

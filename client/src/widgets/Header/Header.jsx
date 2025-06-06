@@ -19,7 +19,7 @@ export default function Header({ user }) {
       }}
     >
       <Container fluid>
-        <Navbar.Brand as={NavLink} to="/themes"
+        <Navbar.Brand as={NavLink} to="/start"
         style={{ fontSize: '30px'}}
         >
           Главная
