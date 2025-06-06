@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import QuestionCard from '../QuestionCard/QuestionCard';
 import QuestionApi from '../../entities/Question/Api/QuestionApi';
+import { useParams } from 'react-router';
 
-const mokquestion = [
-  {
-    question: 'Столица Австралии?',
-    theme_id: 1,
-  },
-  {
-    question: 'Самая длинная река в мире?',
-    theme_id: 1,
-  },
-  {
-    question: 'На каком материке находится Египет?',
-    theme_id: 1,
-  },
-  {
-    question: 'Какая страна имеет наибольшее население?',
-    theme_id: 1,
-  },
-];
+// const mokquestion = [
+//   {
+//     question: 'Столица Австралии?',
+//     theme_id: 1,
+//   },
+//   {
+//     question: 'Самая длинная река в мире?',
+//     theme_id: 1,
+//   },
+//   {
+//     question: 'На каком материке находится Египет?',
+//     theme_id: 1,
+//   },
+//   {
+//     question: 'Какая страна имеет наибольшее население?',
+//     theme_id: 1,
+//   },
+// ];
 
 const mokanswers = [
   {
@@ -44,16 +45,18 @@ const mokanswers = [
   },
 ];
 export default function QuestionList() {
-  const [questions, setQuestions] = useState(mokquestion);
+  const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState(mokanswers);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
 
+  const { id } = useParams();
+
   useEffect(() => {
     const getQuestions = async () => {
       try {
-        // const { data } = await QuestionApi.getAllGamesByTheme(1);
-        // setQuestions(data);
+        const { data } = await QuestionApi.getAllGamesByTheme(id);
+        setQuestions(data);
       } catch (error) {
         console.log(error);
       }

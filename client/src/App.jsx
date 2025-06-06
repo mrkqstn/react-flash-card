@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />} />
         <Route path='/stats' element={<GameStatisticPage />} />
-        <Route path='/questions' element={<QuestionPage />} />
+        <Route path='/questions/:id' element={<QuestionPage />} />
         <Route path ='/themes' element={<ThemePage />}/> 
       </Routes>
     </>
