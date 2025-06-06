@@ -1,12 +1,19 @@
-import React from 'react'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import React from 'react';
+import { useNavigate } from "react-router";
 
-export default function CardTheme({theme}) {
+export default function CardTheme({ theme }) {
+
+    const navigate = useNavigate()
+
   return (
-                <Button 
-                  variant="outline-primary"
-                  style={{ display: "block", margin: "5px 0", width: "100%" }}
-                >
-                  {theme.theme_name}
-                </Button>
-  )
+    <Card style={{ width: '18rem', margin: '0 auto' }}>
+      <Card.Body>
+        <Button variant='primary' style={{ marginTop: '10px' }} onClick={() => navigate(`/questions/${theme.id}`)}>
+          {theme.theme_name}
+        </Button>
+      </Card.Body>
+    </Card>
+  );
 }

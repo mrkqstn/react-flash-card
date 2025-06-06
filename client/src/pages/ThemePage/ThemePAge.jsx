@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ThemeApi from '../../entities/Themes/Theme.api';
+import CardTheme from '../../widgets/CardTheme/CardTheme';
+
+
 
 export default function ThemePAge() {
     const [themes, setThemes] = useState([])
@@ -14,6 +17,8 @@ export default function ThemePAge() {
         }
         getQuestions();
       }, []);
+
+      console.log('-----------------',themes)
   return (
     <>
     <h1>Выберете тему</h1>
