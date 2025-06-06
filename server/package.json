@@ -7,7 +7,7 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "seed": "sequelize db:seed:all",
-    "db": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all ",
+    "db": "npx sequelize db:drop && npx sequelize db:create --template=template0 && npx sequelize db:migrate && npx sequelize db:seed:all ",
     "db:remigrate": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
   },
   "keywords": [],
