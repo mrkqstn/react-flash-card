@@ -4,6 +4,7 @@ import Layout from './app/layout/Layout';
 import GameStatisticPage from './pages/GameStaticticPage/GameStatisticPage';
 import QuestionPage from './pages/QuestionPage/QuestionPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ThemePage from './pages/ThemePage/ThemePage';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Layout />} />
         <Route path='/stats' element={<GameStatisticPage />} />
         <Route path='/questions' element={<QuestionPage />} />
+        <Route path ='/themes' element={<ThemePage />}/> 
       </Routes>
     </>
   );
